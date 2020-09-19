@@ -8,7 +8,7 @@ import { makeStyles,
     Grid
 } from '@material-ui/core';
 import Challenge from './Challenge';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +41,7 @@ const Group = (props) => {
     const [challenges, setChallenges] = React.useState(false);
     const [dense, setDense] = React.useState(false);
     const [secondary, setSecondary] = React.useState(false);
+    let match = useRouteMatch();
   
         return (
             <>
@@ -50,7 +51,7 @@ const Group = (props) => {
                   <div className={classes.demo}>
                     <List dense={dense}>
                       {generate(
-                        <ListItem button component={Link} to="/specificgroup/challenges">
+                        <ListItem button component={Link} to={`${match.url}/specificgroup/challenges`}>
                           <ListItemIcon>
                             <Avatar />
                           </ListItemIcon>
@@ -65,7 +66,7 @@ const Group = (props) => {
               </div>
             </div>
             <Switch>
-                <Route path="/specificgroup/challenges">
+                <Route path={`${match.path}/specificgroup/challenges`}>
                     {console.log("/specificgroup/challenges")}
                     <Challenge />
                 </Route>
