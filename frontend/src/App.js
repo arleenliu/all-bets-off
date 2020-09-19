@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Feed from './Feed';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import Profile from './Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Group from './Group';
 import Button from 'react-bootstrap/Button';
 import CustomNavbar from './CustomNavbar';
 
