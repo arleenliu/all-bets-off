@@ -1,31 +1,42 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Challenge from './Challenge';
 import Feed from './Feed';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Profile from './Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Group from './Group';
+import Button from 'react-bootstrap/Button'
 
 function App() {
+  
+  const [nav, setNav] = useState("feed");
+  const [user, setUser] = useState(null);
   return (
     <>
       <div className="App">
-        <Navbar>
+        {user != null ? <>
+          <Navbar>
             <Nav.Item>
-                <Nav.Link href="#feed">Feed</Nav.Link>
+              <Nav.Link href="#feed" onClick={() => setNav("feed")}>Feed</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="#groups">Groups</Nav.Link>
+              <Nav.Link href="#groups" onClick={() => setNav("groups")}>Groups</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="#profile">Profiles</Nav.Link>
+              <Nav.Link href="#profile" onClick={() => {setNav("profile")}}>Profile</Nav.Link>
             </Nav.Item>
-        </Navbar>
-        <Feed/>
-        <Challenge/>
-        <Profile/>
+          </Navbar>
+          {nav == "feed" && <Feed/>}
+          {nav == "groups" && <Group/>} 
+          {/* Replace with groups. */}
+          {nav == "profile" && <Profile src={logo} name="React" bio="I am a react app" badges={[{img:logo}]}/>}
+        </> : <>
+          Login Page
+          <Button onClick={() => {setUser("not null")}}>Login with Facebook</Button>
+        </>}
+        
       </div>
       <link
         rel="stylesheet"
