@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Add Challenge</title>
+    </head>
+    <body>
+        <h1>Add Challenge</h1>
+
+        <form method="POST" action="/add-challenge">
+            <div>
+                <label>Group ID</label>
+                <input type="text" name="group_id" required />
+            </div>
+            <div>
+                <label>Challenge Name</label>
+                <input type="text" name="challenge_name" required />
+            </div>
+            <div>
+                <label>Info</label>
+                <input type="text" name="info" required />
+            </div>
+            <div>
+                <label>Condition to Win</label>
+                <input type="number" name="end_condition" required />
+            </div>
+            <div>
+                <label>Prize</label>
+                <input type="text" name="prize" required />
+            </div>
+            <div>
+                <button type="submit">Add Challenge</button>
+            </div>
+        </form>
+    </body>
+</html>
