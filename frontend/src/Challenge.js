@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import Nav from 'react-bootstrap/Nav'
+import InteractiveList from './components/LongButton'
 
 const ChallengeNav = (props) => {
 
@@ -12,16 +13,24 @@ const ChallengeNav = (props) => {
             {page == "challenge" &&
             <Navbar>
                 <Nav.Item>
-                    <Nav.Link href="/progress">Progress</Nav.Link>
+                    <Nav.Link href="#progress">Progress</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/details">Details</Nav.Link>
+                    <Nav.Link href="#details">Details</Nav.Link>
+                </Nav.Item>
+            </Navbar>}
+            {page == "progress" && <div className="Progress">
+            <Navbar>
+                <Nav.Item>
+                    <Nav.Link href="#progress">Progress</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="#details">Details</Nav.Link>
                 </Nav.Item>
             </Navbar>
-            }
-            {page == "progress" && <Progress/>}
-            {page == "details" && <Task/>}
+            </div>}
         </div>
+            <InteractiveList />
     </>
     );
 }
