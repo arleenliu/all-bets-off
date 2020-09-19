@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
+const Progress = () => {
+    return null;
+}
+const Task = () => {
+    return null;
+}
 const ChallengeNav = (props) => {
 
     const [page, setPage] = useState("challenge");
