@@ -17,7 +17,7 @@ function App() {
     <>
       <div className="App">
         {user != null ? <>
-          <Navbar>
+          <Navbar className="Nav">
             <Nav.Item>
               <Nav.Link href="#feed" onClick={() => setNav("feed")}>Feed</Nav.Link>
             </Nav.Item>

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: #D6ECF3;
 }
 
 .App-logo {
@@ -35,4 +36,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.avatarPic {
+  height: 100px;
+  width: 100px;
+}
+
+.post {
+  background-color: grey;
+  margin: auto;
+  justify-content: center;
+  width: 400px;
+  padding: 10px;
+}
+
+.postImg{
+  height: 200px;
+  width: 200px;
+}
+
+.Nav {
+  background: white;
 }
