@@ -35,40 +35,46 @@ const useStyles = makeStyles((theme) => ({
     );
   }
 
-const Group = (props) => {
-
+const GroupPage = (props) => {
     const classes = useStyles();
-    const [challenges, setChallenges] = React.useState(false);
-    const [dense, setDense] = React.useState(false);
-    const [secondary, setSecondary] = React.useState(false);
     let match = useRouteMatch();
+    const [dense, setDense] = React.useState(false);
+    return(
+    <div className={classes.root}>
+        <div className={classes.inner}>
+        <Grid item xs={12} md={6}>
+            <div className={classes.demo}>
+            <List dense={dense}>
+                {generate(
+                <ListItem button component={Link} to={`${match.url}/specificgroup/challenges`}>
+                    <ListItemIcon>
+                    <Avatar />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Group"
+                />
+                </ListItem>,
+                )}
+            </List>
+            </div>
+        </Grid>
+        </div>
+    </div>
+    );
+}
+
+const Group = (props) => {
+        let match = useRouteMatch();
   
         return (
             <>
-            <div className={classes.root}>
-              <div className={classes.inner}>
-                <Grid item xs={12} md={6}>
-                  <div className={classes.demo}>
-                    <List dense={dense}>
-                      {generate(
-                        <ListItem button component={Link} to={`${match.url}/specificgroup/challenges`}>
-                          <ListItemIcon>
-                            <Avatar />
-                          </ListItemIcon>
-                          <ListItemText
-                            primary="Group"
-                          />
-                        </ListItem>,
-                      )}
-                    </List>
-                  </div>
-                </Grid>
-              </div>
-            </div>
+
             <Switch>
                 <Route path={`${match.path}/specificgroup/challenges`}>
-                    {console.log("/specificgroup/challenges")}
                     <Challenge />
+                </Route>
+                <Route path={`${match.path}/`}>
+                    <GroupPage />
                 </Route>
             </Switch>
             </>
