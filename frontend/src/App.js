@@ -19,13 +19,13 @@ function App() {
         {user != null ? <>
           <Navbar>
             <Nav.Item>
-              <Nav.Link href="#feed" onClick={() => setNav("feed")}>Feed</Nav.Link>
+              <Nav.Link href="/feed" onClick={() => setNav("feed")}>Feed</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#groups" onClick={() => setNav("groups")}>Groups</Nav.Link>
+              <Nav.Link href="/groups" onClick={() => setNav("groups")}>Groups</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="#profile" onClick={() => {setNav("profile")}}>Profile</Nav.Link>
+              <Nav.Link href="/profile" onClick={() => {setNav("profile")}}>Profile</Nav.Link>
             </Nav.Item>
           </Navbar>
           {nav == "feed" && <Feed/>}
