@@ -46,7 +46,7 @@ function generate(element) {
   );
 }
 
-export default function InteractiveList() {
+export default function ButtonList(props) {
   const classes = useStyles();
   const [dense, setDense] = React.useState(false);
   const [secondary, setSecondary] = React.useState(false);
@@ -63,7 +63,7 @@ export default function InteractiveList() {
                     <Avatar />
                   </ListItemIcon>
                   <ListItemText
-                    primary="Group"
+                    primary={props.name}
                     secondary={secondary ? 'Secondary text' : null}
                   />
                 </ListItem>,
