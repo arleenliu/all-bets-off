@@ -29,7 +29,7 @@ function App() {
             </Nav.Item>
           </Navbar>
           {nav == "feed" && <Feed/>}
-          {nav == "groups" && <Group/>} 
+          {nav == "groups" && <Group challenges={[1, 2, 3]}/>} 
           {/* Replace with groups. */}
           {nav == "profile" && <Profile src={logo} name="React" bio="I am a react app" badges={[{img:logo}]}/>}
         </> : <>
