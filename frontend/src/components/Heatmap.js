@@ -5,7 +5,7 @@ import './heatmap.css';
 import ReactTooltip from 'react-tooltip';
 import * as moment from 'moment';
 import * as d3 from 'd3';
- 
+
  */
 import React from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
@@ -84,11 +84,7 @@ export class Heatmap extends React.Component {
             />
           </div>
         </div>{' '}
-        <div className="text-sm-center mt-4">
-          <button className="btn btn-link btn-sm text-secondary" onClick={this.generateValues}>
-            Regenerate values
-          </button>
-        </div>
+        
         <ReactTooltip />
       </div>
     );
@@ -112,7 +108,7 @@ export class Heatmap extends React.Component {
             });
       return {startDate: time_ago, endDate: now, values: data };
   }
-  
+
   function generate(element) {
       return [0, 1, 2].map((value) =>
         React.cloneElement(element, {
