@@ -8,7 +8,7 @@
     <body>
         <h1>Add Challenge</h1>
 
-        <form method="POST" action="/add-challenge">
+        <form method="POST" action="/api/challenge">
             <div>
                 <label>Group ID</label>
                 <input type="text" name="group_id" required />
@@ -22,7 +22,7 @@
                 <input type="text" name="info" required />
             </div>
             <div>
-                <label>Condition to Win</label>
+                <label>Number of Tasks to Win</label>
                 <input type="number" name="end_condition" required />
             </div>
             <div>
