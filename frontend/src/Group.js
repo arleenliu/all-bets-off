@@ -76,10 +76,10 @@ const Group = (props) => {
             <>
             <div class = "center">
             <Switch>
-                <Route path={`${match.path}/specificgroup/challenges`}>
+                <Route path={`${match.url}/specificgroup/challenges`}>
                     <Challenge />
                 </Route>
-                <Route path={`${match.path}/`}>
+                <Route path={`${match.url}`}>
                     <GroupPage />
                 </Route>
             </Switch>

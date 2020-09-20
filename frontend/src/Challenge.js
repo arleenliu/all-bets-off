@@ -1,29 +1,79 @@
-import React, {useState} from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import ButtonList from './components/LongButton';
 
-const Progress = () => {
-    return null;
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import Grid from '@material-ui/core/Grid';
+import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
+import ChallengeNav from './components/ChallengeNav';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+  },
+  inner: {
+    maxWidth: '75%',
+    margin: theme.spacing(0, 'auto')
+  },
+  demo: {
+    backgroundColor: '#D3D3D3',
+    
+  },
+  title: {
+    margin: theme.spacing(4, 0, 2),
+  }
+}));
+
+function generate(element) {
+  return [0, 1, 2].map((value) =>
+    React.cloneElement(element, {
+      key: value,
+    }),
+  );
 }
-const Task = () => {
-    return null;
-}
-const ChallengeNav = (props) => {
 
-    const [page, setPage] = useState("challenge");
-
+const Base = () => {
+    const classes = useStyles();
+    let match = useRouteMatch();
     return (
-        <ButtonList name="Challenge"/>
+        <div className={classes.root}>
+            <div className={classes.inner}>
+                <Grid item xs={12} md={6}>
+                    <div className={classes.demo}>
+                    <List >
+                        {generate(
+                        <ListItem button component={Link} to={`${match.url}/specificchallenge`}>
+                            <ListItemIcon>
+                            <Avatar />
+                        </ListItemIcon>
+                        <ListItemText
+                        primary="Challenge"
+                        />
+                        </ListItem>,
+                        )}
+                    </List>
+                    </div>
+                </Grid>
+            </div>
+        </div>
     );
 }
 
-const Challenge = (props) => {
-    return (
-        <>
-            <ChallengeNav/>
-        </>
-    );
-}
+export default function Challenge() {
+  let match = useRouteMatch();
+  return (
 
-export default Challenge;
+    <Switch>
+        <Route path={`${match.url}/:challenge`}>
+            <ChallengeNav />
+        </Route>
+        <Route path={`${match.url}`}>
+            <Base />
+        </Route>
+    </Switch>
+  );
+};
