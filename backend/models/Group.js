@@ -5,15 +5,15 @@ const GroupSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    credits: {
-        type: Number,
-        required: true,
-    },
-    bio: {
+    about: {
         type: String,
         required: true,
     },
-    groups: {
+    members: {
+        type: Array,
+        required: false, // only required for private groups.
+    },
+    challenges: {
         type: Array,
         required: true,
     }

@@ -1,21 +1,25 @@
 const mongoose = require('mongoose');
 
 const TaskSchema = mongoose.Schema({
-    name: {
+    challengeId: {
         type: String,
         required: true,
     },
-    credits: {
+    userId: {
         type: Number,
         required: true,
     },
-    bio: {
+    groupId: {
         type: String,
         required: true,
     },
-    groups: {
+    timestamp: {
         type: Array,
         required: true,
+    },
+    notes: {
+        type: String,
+        required: false
     }
 });
 
