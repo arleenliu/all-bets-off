@@ -6,19 +6,18 @@ import Image from 'react-bootstrap/Image';
 import bet from './images/bet.jpg'
 import CustomNavbar from './CustomNavbar';
 
-
 export default function App() {
   const [user, setUser] = useState(null);
   return (
     <>
     <div style = {{background: '#D6ECF3', minHeight : '100vh'}}>
-    {user ? <CustomNavbar /> : 
+    {user ? <CustomNavbar/> : 
       <>
         <div class = "logoimg">
           <Image src={bet} fluid />
         </div>
         <div class = "center">
-          <Button onClick={() => {setUser("not null")}}>Login with Facebook</Button>
+          <Button variant="outline-primary" onClick={() => {setUser("not null")}}>Login with Facebook</Button>
         </div>
       </>
     }

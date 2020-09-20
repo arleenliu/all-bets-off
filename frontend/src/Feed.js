@@ -4,6 +4,7 @@ import ex1 from './images/ex1.jpg';
 import logo from './images/prof.jpg';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import BackButton from './components/BackButton'
 import './Feed.css';
 const Feed = (props) => {
   //posts = get(props.id); // FINISH ME posts = [post]
@@ -25,6 +26,7 @@ const Feed = (props) => {
   ];
   posts = posts.slice(0, 10); // Get the first 10 posts.
   return (
+    <>
     <Container>
       {posts.map(post => {
         return (
@@ -36,6 +38,7 @@ const Feed = (props) => {
         );
       })}
     </Container>
+    </>
   );
 }
 

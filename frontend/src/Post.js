@@ -52,14 +52,15 @@ const Content = (props) => {
 
 const CommentsBlock = (props) => {
   const [writeComment, setWriteComment] = useState(false);
+  const [likes, setLikeCount] = useState(0);
   return (
     <>
       <Row>
         <Col>
-          <Button varient={props.liked ? "primary" : "outline-primary"} onClick={props.toggleLike}>Like</Button>
+          <Button variant="link" onClick={() => setLikeCount(likes + 1)}>Like</Button>{likes}
         </Col>
         <Col>
-          <Button varient="outline-primary" onClick={() => setWriteComment(true)}>Comment</Button>
+          <Button variant="link" onClick={() => setWriteComment(true)}>Comment</Button>
         </Col>
       </Row>
       {writeComment ?
@@ -71,7 +72,7 @@ const CommentsBlock = (props) => {
                 <Form.Control type="text" placeholder="comment" />
               </Col>
               <Col>
-                <Button type="submit">Post</Button>
+                <Button variant="link" type="submit">Post</Button>
               </Col>
             </Form.Row>
           </Form>

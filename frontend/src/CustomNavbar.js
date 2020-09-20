@@ -8,6 +8,7 @@ import Profile from './Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Group from './Group';
 import Button from 'react-bootstrap/Button';
+import BackButton from './components/BackButton';
 import './CustomNavbar.css';
 import {
   BrowserRouter as Router,
@@ -32,6 +33,7 @@ export default function CustomNavbar(){
             </Nav.Item>
         </Navbar>
         </div>
+        <BackButton/>
     
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
