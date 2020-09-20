@@ -18,9 +18,6 @@ const Profile = (props) => {
       width: props.width,
       height: props.height,
       backgroundColor: props.color,
-      border: 10,
-      borderWidth: 5,
-      borderColor: '#000000'
     };
     return (
     <div style={boxStyle}> {props.txt}
@@ -34,7 +31,7 @@ const Profile = (props) => {
   var biowidth = 430
   var bioheight = 200
 
-  renderData.push(<Box txt={props.name} color="#FFFFFF" width={namewidth} height={nameheight}/>);
+  renderData.push(<Box txt={props.name} color="#D6ECF3" width={namewidth} height={nameheight}/>);
   renderData.push(<Box txt={props.bio} color="#E6F7FF" width={biowidth} height={bioheight}/>);
 
   var Circle = (props)=> {
