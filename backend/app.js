@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const adminRoute = require('./routes/admin');
+const apiRoutes = require('./routes/api');
 const config = require('config');
 
 const app = express();
@@ -17,7 +17,7 @@ app.set('views', './src/pages');
 app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
 app.use(express.json());
-app.use('/api', adminRoute);
+app.use('/api', apiRoutes);
 
 const port = config.get("port") || 8080;
 const dbConfig=config.get('dbConfig');
