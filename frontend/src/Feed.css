@@ -1,6 +1,7 @@
 .Feed {
   text-align: center;
   background: #D6ECF3;
+  font-family: 'Lato';
 }
 
 .feed_row {
@@ -9,4 +10,5 @@
   justify-content: center;
   width: 400px;
   padding: 10px;
+  font-family: 'Lato';
 }

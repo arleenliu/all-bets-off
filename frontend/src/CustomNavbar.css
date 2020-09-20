@@ -1,6 +1,7 @@
 .CustomNavbar {
   text-align: center;
   background: white;
+  font-family: 'Lato';
 }
 
 .center_nav {
@@ -8,4 +9,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Lato';
 }
