@@ -29,7 +29,7 @@ export default function CustomNavbar(props) {
             <Nav.Link as={Link} to="/groups" style={{ marginRight: 100 }}>Groups</Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link as={Link} to="/profile" style={{ marginRight: 100 }}>Profile</Nav.Link>
+            <Nav.Link as={Link} to="/profile" style={{ marginRight: 0 }}>Profile</Nav.Link>
           </Nav.Item>
         </Navbar>
       </div>
