@@ -89,7 +89,6 @@ export default function Challenge() {
             <ChallengeNav />
         </Route>
         <Route path={`${match.url}`}>
-            {groupId}
             <Base challenges={challenges}/>
         </Route>
     </Switch>

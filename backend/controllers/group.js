@@ -41,7 +41,9 @@ exports.editGroup = async (req, res) => {
 
       group.save().then(() => {
         console.log('Item Updated');
-        res.status(201).redirect('/');
+        res.status(201).json({
+          success: true
+        });
       })
       .catch((err) => {
           console.error(err);

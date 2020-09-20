@@ -25,7 +25,7 @@ export default function App() {
           <Image src={bet} fluid />
         </div>
         <div class = "center">
-          <Button variant="outline-primary" onClick={() => {fetchUser("5f66cfd0706e1c8cd03914c9")}}>Login with Facebook</Button>
+          <Button variant="outline-primary" onClick={() => {fetchUser("5f6722a2a816b2a3f0fa5538")}}>Login with Facebook</Button>
         </div>
       </>
     }
