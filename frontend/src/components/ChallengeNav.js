@@ -16,6 +16,7 @@ import {
   Link,
   useRouteMatch
 } from "react-router-dom";
+import Progress from './Progress';
 
 export default function ChallengeNav(){
     let match = useRouteMatch();
@@ -35,11 +36,12 @@ export default function ChallengeNav(){
         <Switch>
         <Route path={`${match.url}/progress`}>
             {console.log("Progress")}
+            <Progress />
           </Route>
 
         <Route path={`${match.url}/details`}>
               <Details/>
-            </Route>
+        </Route>
         </Switch>
         </>);
 }
