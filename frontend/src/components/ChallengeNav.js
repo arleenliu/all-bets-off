@@ -8,6 +8,7 @@ import Profile from '../Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Group from '../Group';
 import Button from 'react-bootstrap/Button';
+import Details from '../Details';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,7 +30,7 @@ export default function ChallengeNav(){
               <Nav.Link as={Link} to={`${match.url}/details`}> Details </Nav.Link>
             </Nav.Item>
         </Navbar>
-    
+
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -37,9 +38,16 @@ export default function ChallengeNav(){
             {console.log("Progress")}
             <Progress />
           </Route>
+<<<<<<< HEAD
         <Route path={`${match.url}/details`}>
             {console.log("Details")}
         </Route>
+=======
+
+        <Route path={`${match.url}/details`}>
+              <Details/>
+            </Route>
+>>>>>>> f71e4aa2aba8168f4809f9a04c993a138e7cfe64
         </Switch>
         </>);
 }
