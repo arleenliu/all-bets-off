@@ -51,7 +51,7 @@ const GroupPage = (props) => {
           <div className={classes.demo}>
             <List dense={dense}>
               {props.groups.map((group) =>
-                <LongButton key={group._id} link={`${match.url}/${group._id}/challenges`} primary={group.name}/>
+                <LongButton key={group._id} link={`${match.url}/${group._id}/challenges`} primary={group.name} secondary={group.about}/>
                 //   <ListItem button component={Link} to={`${match.url}/${group._id}/challenges`}>
                 //     <div class='group_block'>
                 //       <ListItemIcon>
