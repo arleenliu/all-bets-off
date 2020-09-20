@@ -18,6 +18,9 @@ const Comment = (props) => {
 }
 
 const Header = (props) => {
+  const options1 = {weekday: 'short', year:'numeric', month: 'short', day: 'numeric'};
+  const dateformat = new Intl.DateTimeFormat('en-US', options1);
+
   return (
     <Row>
       <Col>
@@ -28,7 +31,7 @@ const Header = (props) => {
           {props.name}
         </Row>
         <Row>
-          {props.time}
+          {dateformat.format(props.time)}
         </Row>
       </Col>
     </Row>
@@ -54,7 +57,7 @@ const Content = (props) => {
 
 const CommentsBlock = (props) => {
   const [writeComment, setWriteComment] = useState(false);
-  const [likes, setLikeCount] = useState(0);
+  const [likes, setLikeCount] = useState(Math.floor(Math.random() * 10));
   return (
     <>
       <Row>
