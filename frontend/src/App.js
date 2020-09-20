@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import bet from './images/bet.jpg'
+import bet from './images/beticon.png'
 import CustomNavbar from './CustomNavbar';
 
 export default function App() {
@@ -11,7 +11,7 @@ export default function App() {
   return (
     <>
     <div style = {{background: '#D6ECF3', minHeight : '100vh'}}>
-    {user ? <CustomNavbar/> : 
+    {user ? <CustomNavbar/> :
       <>
         <div class = "logoimg">
           <Image src={bet} fluid />
