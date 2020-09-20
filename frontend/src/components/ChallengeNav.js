@@ -8,6 +8,7 @@ import Profile from '../Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Group from '../Group';
 import Button from 'react-bootstrap/Button';
+import Details from '../Details';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +16,7 @@ import {
   Link,
   useRouteMatch
 } from "react-router-dom";
+import Progress from './Progress';
 
 export default function ChallengeNav(){
     let match = useRouteMatch();
@@ -28,13 +30,18 @@ export default function ChallengeNav(){
               <Nav.Link as={Link} to={`${match.url}/details`}> Details </Nav.Link>
             </Nav.Item>
         </Navbar>
-    
+
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
         <Route path={`${match.url}/progress`}>
             {console.log("Progress")}
+            <Progress />
           </Route>
+
+        <Route path={`${match.url}/details`}>
+              <Details/>
+        </Route>
         </Switch>
         </>);
 }

@@ -1,0 +1,11 @@
+.CustomNavbar {
+  text-align: center;
+  background: white;
+}
+
+.center_nav {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
