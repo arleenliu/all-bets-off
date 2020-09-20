@@ -7,5 +7,11 @@
     </head>
     <body>
         <h1>Challenge</h1>
+        <main>
+            <h1><%= challenge.challenge_name%></h1>
+            <div>
+                <a href="/edit-challenge/<%= challenge.id %>?edit=true">Edit</a>
+            </div>
+        </main>
     </body>
 </html>

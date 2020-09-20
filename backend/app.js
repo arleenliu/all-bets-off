@@ -2,8 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-const adminRoute = require('./routes/admin');
-require('dotenv').config();
+const apiRoutes = require('./routes/api');
+const config = require('config');
 
 const app = express();
 
@@ -12,16 +12,18 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', './src/pages');
 
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 
 app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
-app.use('/', adminRoute);
+app.use(express.json());
+app.use('/api', apiRoutes);
 
-const port = process.env.PORT || 8080;
+const port = config.get("port") || 8080;
+const dbConfig=config.get('dbConfig');
 
 mongoose
-    .connect(process.env.DB_HOST, {
+    .connect(dbConfig.uri, {
         useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,

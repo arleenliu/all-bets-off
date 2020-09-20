@@ -1,0 +1,6 @@
+{
+  "dbConfig": {
+    "uri": "mongodb+srv://root:admin@hackmit.ar7fr.mongodb.net/bet?retryWrites=true&w=majority"
+  },
+  "port": null
+}
