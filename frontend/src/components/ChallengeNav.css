@@ -1,0 +1,20 @@
+.ChallengeNav {
+  text-align: center;
+  background: white;
+  font-family: 'Lato';
+}
+
+.challenge_nav {
+    background: white;
+    display: flex;
+    width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato';
+  }
+
+.user {
+  padding-top: 20px;
+}

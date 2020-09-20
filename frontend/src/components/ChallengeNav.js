@@ -17,22 +17,24 @@ import {
   useRouteMatch
 } from "react-router-dom";
 import Progress from './Progress';
+import './ChallengeNav.css';
 
 export default function ChallengeNav(){
     let match = useRouteMatch();
     return (
         <>
-        <Navbar>
-          <Nav.Item>
-              <Nav.Link as={Link} to={`${match.url}/progress`}> Progress </Nav.Link>
-           </Nav.Item>
-           <Nav.Item>
-              <Nav.Link as={Link} to={`${match.url}/details`}> Details </Nav.Link>
+        <div style={{paddingTop: "50px"}}>
+        <div class='challenge_nav'>
+          <Navbar>
+            <Nav.Item>
+                <Nav.Link as={Link} to={`${match.url}/progress`}> Progress </Nav.Link>
             </Nav.Item>
-        </Navbar>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+            <Nav.Item>
+                <Nav.Link as={Link} to={`${match.url}/details`}> Details </Nav.Link>
+              </Nav.Item>
+          </Navbar>
+        </div>
+        <div class="user">
         <Switch>
         <Route path={`${match.url}/progress`}>
             {console.log("Progress")}
@@ -43,5 +45,7 @@ export default function ChallengeNav(){
               <Details/>
         </Route>
         </Switch>
+        </div>
+        </div>
         </>);
 }

@@ -14,7 +14,6 @@ import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import './Group.css';
 import Axios from 'axios';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
   },

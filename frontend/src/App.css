@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   background: #D6ECF3;
+  font-family: 'Lato';
 }
 
 html, body {
@@ -27,6 +28,7 @@ html, body {
   margin-right: auto;
   padding-top: 100px;
   border-radius: 20px;
+  font-family: 'Lato';
 }
 
 .center {
@@ -34,6 +36,7 @@ html, body {
   justify-content: center;
   align-items: center;
   height:50vh;  
+  font-family: 'Lato';
 }
 
 .App-header {
@@ -71,6 +74,7 @@ html, body {
   justify-content: center;
   width: 400px;
   padding: 10px;
+  font-family: 'Lato';
 }
 
 .postImg{
