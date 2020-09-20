@@ -1,8 +1,10 @@
 .BackButton {
   text-align: center;
   background: white;
+  font-family: 'Lato';
 }
 
 .back {
   padding: 10px;
+  font-family: 'Lato';
 }
