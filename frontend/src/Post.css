@@ -1,0 +1,34 @@
+.Post {
+  text-align: center;
+}
+
+.post {
+  background-color: white;
+  margin: auto;
+  justify-content: center;
+  width: 400px;
+  padding: 10px;
+}
+
+.comments {
+  padding: 10px;
+  border-width: 2px;
+  border-color: black;
+}
+
+.header {
+  padding: 10px;
+}
+
+.postImg {
+  height: 200px;
+  width: 400px;
+  padding-left: 10px;
+}
+
+.avatarPic {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+

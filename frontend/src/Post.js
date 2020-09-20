@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import './Post.css';
 
 const Comment = (props) => {
   return (
@@ -20,7 +21,7 @@ const Header = (props) => {
       <Col>
         <Image className="avatarPic" src={props.img} onClick={props.onClick} responsive/>
       </Col>
-      <Col>
+      <Col class="header">
         <Row>
           {props.name}
         </Row>
@@ -51,14 +52,15 @@ const Content = (props) => {
 
 const CommentsBlock = (props) => {
   const [writeComment, setWriteComment] = useState(false);
+  const [likes, setLikeCount] = useState(0);
   return (
     <>
       <Row>
         <Col>
-          <Button varient={props.liked ? "primary" : "outline-primary"} onClick={props.toggleLike}>Like</Button>
+          <Button variant="link" onClick={() => setLikeCount(likes + 1)}>Like</Button>{likes}
         </Col>
         <Col>
-          <Button varient="outline-primary" onClick={() => setWriteComment(true)}>Comment</Button>
+          <Button variant="link" onClick={() => setWriteComment(true)}>Comment</Button>
         </Col>
       </Row>
       {writeComment ?
@@ -70,7 +72,7 @@ const CommentsBlock = (props) => {
                 <Form.Control type="text" placeholder="comment" />
               </Col>
               <Col>
-                <Button type="submit">Post</Button>
+                <Button variant="link" type="submit">Post</Button>
               </Col>
             </Form.Row>
           </Form>
@@ -88,7 +90,7 @@ const Post = (props) => {
 
   return (
     <Container className="post">
-      <Header 
+      <Header
         img={props.profilePic} 
         onClick={() => {alert("Go to profile")}}
         name={props.userName}
@@ -97,9 +99,11 @@ const Post = (props) => {
         challengeName={props.challengeName} 
         caption={props.caption} 
         img={props.img}/>
+      <div class = "comments">
       <CommentsBlock 
         liked={props.liked}
         comments={props.comments}/>
+      </div>
     </Container>
   );
 }
