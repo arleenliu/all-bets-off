@@ -15,8 +15,8 @@ const Details = (props) => {
       display: "inline-block",
       textAlign: 'left',
       alignItems: 'center',
-      fontSize: 15,
-      fontFamily: 'Helvetica Neue',
+      fontSize: 20,
+      fontFamily: 'Lato',
       width: 430,
       height: 200,
       backgroundColor: "#E6F7FF",
@@ -25,7 +25,7 @@ const Details = (props) => {
       borderColor: '#000000'
     };
     return (
-      <div style={boxStyle}> 
+      <div style={boxStyle}>
         {props.text}
       </div>
     );
@@ -39,10 +39,11 @@ const Details = (props) => {
       textAlign: 'center',
       alignItems: 'center',
       fontSize: props.fontSize,
-      fontFamily: 'Helvetica Neue',
+      fontFamily: 'Lato',
       backgroundColor: props.bgColor,
       borderRadius: "50%",
       border: 4,
+      boxShadow: "0 0 3pt 2pt #A9A9A9",
       borderColor: '#000000',
       width: props.size,
       height: props.size,
@@ -54,7 +55,7 @@ const Details = (props) => {
   };
 
   var renderData = [];
-  var colors = ["#E6F7FF", "#E6F7FF", "#E6F7FF"];
+  var colors = ["#FFFFFF", "#FFFFFF", "#FFFFFF"];
   var texts = ["COMPLETED", "POT", "GOAL"];
   var nums = [`${props.challenge.completed.length} tasks`, `${props.challenge.prize}`, `${props.challenge.end_condition.cond}`];
   var sizes = [100, 150, 100];
