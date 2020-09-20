@@ -23,7 +23,8 @@ export default function ChallengeNav(){
     let match = useRouteMatch();
     return (
         <>
-        <div className='center_nav'>
+        <div style={{paddingTop: "50px"}}>
+        <div class='challenge_nav'>
           <Navbar>
             <Nav.Item>
                 <Nav.Link as={Link} to={`${match.url}/progress`}> Progress </Nav.Link>
@@ -33,9 +34,7 @@ export default function ChallengeNav(){
               </Nav.Item>
           </Navbar>
         </div>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+        <div class="user">
         <Switch>
         <Route path={`${match.url}/progress`}>
             {console.log("Progress")}
@@ -46,5 +45,7 @@ export default function ChallengeNav(){
               <Details/>
         </Route>
         </Switch>
+        </div>
+        </div>
         </>);
 }
