@@ -1,0 +1,12 @@
+.Feed {
+  text-align: center;
+  background: #D6ECF3;
+}
+
+.feed_row {
+  padding-top: 20px;
+  margin: auto;
+  justify-content: center;
+  width: 400px;
+  padding: 10px;
+}
