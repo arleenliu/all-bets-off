@@ -37,3 +37,15 @@
   font-family: 'Lato';
 }
 
+.name {
+  justify-content: left;
+  padding: 0 0.5vw;
+}
+
+.gradeicon:focus {
+  background-color: blue
+}
+
+#comment {
+  justify-content: right;
+}
