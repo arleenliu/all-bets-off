@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/esm/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import GradeIcon from '@material-ui/icons/Grade';
+import {Grid} from '@material-ui/core';
 import './Post.css';
 
 const Comment = (props) => {
@@ -36,10 +38,10 @@ const Header = (props) => {
 const Content = (props) => {
   return (
     <>
-      <Row>
+      <Row className="name">
         {props.challengeName}
       </Row>
-      <Row>
+      <Row className="name">
         {props.caption}
       </Row>
       {props.img != null &&
@@ -57,12 +59,14 @@ const CommentsBlock = (props) => {
     <>
       <Row>
         <Col>
-          <Button variant="link" onClick={() => setLikeCount(likes + 1)}>Like</Button>{likes}
+          <GradeIcon button variant={"primary"} onClick={() => setLikeCount(likes + 1)}/>
+        {likes}
         </Col>
         <Col>
-          <Button variant="link" onClick={() => setWriteComment(true)}>Comment</Button>
+        <Button variant="Link" onClick={() => setWriteComment(true)}>Comment</Button>
         </Col>
       </Row>
+      
       {writeComment ?
       <Row>
         <Col>
