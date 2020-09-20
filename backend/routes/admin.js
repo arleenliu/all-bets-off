@@ -5,14 +5,14 @@ const router = express.Router();
 
 router.get('/', adminController.getIndex);
 
-router.get('/add-challenge', adminController.getAddChallenge);
+router.get('/challenge', adminController.getChallenges);
 
-router.post('/add-challenge', adminController.postChallenge);
+router.post('/challenge', adminController.createChallenge);
 
-router.get('/edit-challenge/:challengeId', adminController.getEditChallenge);
+router.put('/challenge/:challengeId', adminController.editChallenge);
 
-router.get('/edit-challenge', adminController.postEditChallenge)
+router.get('/challenge/:challengeId', adminController.getChallenge);
 
-router.get('get-challenge/:challengeId', adminController.getChallenge);
+router.get('/challenge-form', (req, res) => res.status(200).render('edit-challenge'));
 
 module.exports = router;

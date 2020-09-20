@@ -14,7 +14,7 @@ const ChallengeSchema = mongoose.Schema({
         required: true,
     },
     end_condition: {
-        type: Number,
+        type: Object,
         required: true,
     },
     completed: {
@@ -27,4 +27,4 @@ const ChallengeSchema = mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('series', ChallengeSchema);
+module.exports = mongoose.model('challenges', ChallengeSchema);
