@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import Feed from '../Feed';
@@ -14,10 +14,12 @@ import {
   Switch,
   Route,
   Link,
-  useRouteMatch
+  useRouteMatch,
+  useParams
 } from "react-router-dom";
 import Progress from './Progress';
 import './ChallengeNav.css';
+import Axios from 'axios';
 
 export default function ChallengeNav(){
     let match = useRouteMatch();
@@ -28,7 +30,7 @@ export default function ChallengeNav(){
         let data = await Axios.get(`/challenge/${challengeId}`);
         setChallenge(data.data);
       }
-    }, [groudId]);
+    }, [challengeId]);
     return (
         <>
         <div style={{paddingTop: "50px"}}>

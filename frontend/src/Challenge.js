@@ -76,9 +76,11 @@ export default function Challenge() {
   useEffect(() => {
     let fetchData = async () => {
       let data = await Axios.get(`/group/${groupId}`);
+      console.log(data, groupId);
       setChallenges(data.data.challenges);
     }
-  }, [groudId]);
+    fetchData();
+  }, [groupId]);
 
   return (
 
@@ -87,7 +89,8 @@ export default function Challenge() {
             <ChallengeNav />
         </Route>
         <Route path={`${match.url}`}>
-            <Base />
+            {groupId}
+            <Base challenges={challenges}/>
         </Route>
     </Switch>
   );

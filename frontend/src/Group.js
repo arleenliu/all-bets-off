@@ -51,7 +51,7 @@ const GroupPage = (props) => {
             <List dense={dense}>
               {props.groups.map((group) =>
                 <div class='group' key={group._id}>
-                  <ListItem button component={Link} to={`${match.url}/specificgroup/challenges`}>
+                  <ListItem button component={Link} to={`${match.url}/${group._id}/challenges`}>
                     <div class='group_block'>
                       <ListItemIcon>
                         <Avatar />
@@ -90,7 +90,7 @@ const Group = (props) => {
       <div class="center">
         <Switch>
           <Route path={`${match.url}/:groupId/challenges`}>
-            <Challenge user={props.user} group={selectedGroup}/>
+            <Challenge user={props.user}/>
           </Route>
           <Route path={`${match.url}`}>
             <GroupPage user={props.user} groups={groups}/>
