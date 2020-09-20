@@ -12,7 +12,6 @@ import Challenge from './Challenge';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import './Group.css';
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
     },
