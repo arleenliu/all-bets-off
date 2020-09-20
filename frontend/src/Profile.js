@@ -44,7 +44,7 @@ const Profile = (props) => {
         textAlign: 'center',
         alignItems: 'center',
         fontSize: props.fontSize,
-        fontFamily: 'Helvetica Neue',
+        fontFamily: 'Lato',
         backgroundColor: props.bgColor,
         borderRadius: "50%",
         border: 4,
@@ -61,7 +61,7 @@ const Profile = (props) => {
 
   var colors = ["#FFF", "#FFF", "#FFF"];
   var texts = ["MONEY MADE", "TASKS COMPLETED", "CURRENT CHALLENGES"];
-  var nums = ["$XX", "XX", "XX"];
+  var nums = ["$24", "56", "2"];
   var sizes = [100, 150, 100];
   var fontSizes = [12, 19, 10];
 
