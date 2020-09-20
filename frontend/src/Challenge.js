@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,9 +9,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
-import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom';
 import ChallengeNav from './components/ChallengeNav';
 import './Group.css';
+import Axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,15 +30,15 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
+// function generate(element) {
+//   return [0, 1, 2].map((value) =>
+//     React.cloneElement(element, {
+//       key: value,
+//     }),
+//   );
+// }
 
-const Base = () => {
+const Base = (props) => {
     const classes = useStyles();
     let match = useRouteMatch();
     return (
@@ -46,9 +47,9 @@ const Base = () => {
                 <Grid item xs={12} md={6}>
                     <div className={classes.demo}>
                     <List >
-                        {generate(
-                        <div class='group'>
-                        <ListItem button component={Link} to={`${match.url}/specificchallenge`}>
+                        {props.challenges.map(challenge => 
+                        <div class='group' key={challenge._id}>
+                        <ListItem button component={Link} to={`${match.url}/${challenge._id}`}>
                             <div class= 'group_block'>
                             <ListItemIcon>
                             <Avatar />
@@ -70,6 +71,17 @@ const Base = () => {
 
 export default function Challenge() {
   let match = useRouteMatch();
+  let {groupId} = useParams();
+  const [challenges, setChallenges] = useState([]);
+  useEffect(() => {
+    let fetchData = async () => {
+      let data = await Axios.get(`/group/${groupId}`);
+      console.log(data, groupId);
+      setChallenges(data.data.challenges);
+    }
+    fetchData();
+  }, [groupId]);
+
   return (
 
     <Switch>
@@ -77,7 +89,8 @@ export default function Challenge() {
             <ChallengeNav />
         </Route>
         <Route path={`${match.url}`}>
-            <Base />
+            {groupId}
+            <Base challenges={challenges}/>
         </Route>
     </Switch>
   );

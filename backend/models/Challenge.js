@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const ChallengeSchema = mongoose.Schema({
     group_id: {
-        type: String,
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'groups',
         required: true,
     },
     challenge_name: {

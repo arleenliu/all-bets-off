@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
-import bet from './images/bet.jpg'
+import bet from './images/beticon.png'
 import CustomNavbar from './CustomNavbar';
 import axios from 'axios';
 
