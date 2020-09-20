@@ -57,7 +57,7 @@ const GroupPage = (props) => {
                         <Avatar />
                       </ListItemIcon>
                       <ListItemText
-                        primary="Group"
+                        primary={group.name}
                       />
                     </div>
                   </ListItem>
