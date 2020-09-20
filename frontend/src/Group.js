@@ -13,6 +13,7 @@ import Challenge from './Challenge';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import './Group.css';
 import Axios from 'axios';
+import LongButton from './components/LongButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,18 +51,18 @@ const GroupPage = (props) => {
           <div className={classes.demo}>
             <List dense={dense}>
               {props.groups.map((group) =>
-                <div class='group' key={group._id}>
-                  <ListItem button component={Link} to={`${match.url}/${group._id}/challenges`}>
-                    <div class='group_block'>
-                      <ListItemIcon>
-                        <Avatar />
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={group.name}
-                      />
-                    </div>
-                  </ListItem>
-                </div>
+                <LongButton key={group._id} link={`${match.url}/${group._id}/challenges`} primary={group.name}/>
+                //   <ListItem button component={Link} to={`${match.url}/${group._id}/challenges`}>
+                //     <div class='group_block'>
+                //       <ListItemIcon>
+                //         <Avatar />
+                //       </ListItemIcon>
+                //       <ListItemText
+                //         primary={group.name}
+                //       />
+                //     </div>
+                //   </ListItem>
+                // </div> 
               )}
             </List>
           </div>
@@ -90,7 +91,7 @@ const Group = (props) => {
       <div class="center">
         <Switch>
           <Route path={`${match.url}/:groupId/challenges`}>
-            <Challenge user={props.user}/>
+            <Challenge user={props.user} />
           </Route>
           <Route path={`${match.url}`}>
             <GroupPage user={props.user} groups={groups}/>

@@ -1,5 +1,4 @@
-
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -13,6 +12,7 @@ import { Link, Switch, Route, useRouteMatch, useParams } from 'react-router-dom'
 import ChallengeNav from './components/ChallengeNav';
 import './Group.css';
 import Axios from 'axios';
+import LongButton from './components/LongButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   demo: {
     backgroundColor: '#D6ECF3',
-    
+
   },
   title: {
     margin: theme.spacing(4, 0, 2),
@@ -39,45 +39,52 @@ const useStyles = makeStyles((theme) => ({
 // }
 
 const Base = (props) => {
-    const classes = useStyles();
-    let match = useRouteMatch();
-    return (
-        <div className={classes.root}>
-            <div className={classes.inner}>
-                <Grid item xs={12} md={6}>
-                    <div className={classes.demo}>
-                    <List >
-                        {props.challenges.map(challenge => 
-                        <div class='group' key={challenge._id}>
-                        <ListItem button component={Link} to={`${match.url}/${challenge._id}`}>
-                            <div class= 'group_block'>
-                            <ListItemIcon>
-                            <Avatar />
-                        </ListItemIcon>
-                        <ListItemText
-                        primary="Challenge"
-                        />
-                        </div>
-                        </ListItem>
-                        </div>
-                        )}
-                    </List>
-                    </div>
-                </Grid>
-            </div>
-        </div>
-    );
+  const classes = useStyles();
+  let match = useRouteMatch();
+  return (
+    <div className={classes.root}>
+      <div className={classes.inner}>
+        <Grid item xs={12} md={6}>
+          <div className={classes.demo}>
+            Challenges for {props.groupName}
+            <List >
+              {props.challenges.map(challenge =>
+                <LongButton link={`${match.url}/${challenge._id}`} key={challenge._id} primary={challenge.challenge_name} />
+                //   <ListItem button component={Link} to={`${match.url}/${challenge._id}`}>
+                //     <div class='group_block'>
+                //       {/* <ListItemIcon>
+                //         <Avatar />
+                //       </ListItemIcon> */}
+                //       <ListItemText
+                //         primary={challenge.challenge_name}
+                //       />
+                //     </div>
+                //   </ListItem>
+                // </div>
+              )}
+            </List>
+          </div>
+        </Grid>
+      </div>
+    </div>
+  );
 }
 
 export default function Challenge() {
   let match = useRouteMatch();
-  let {groupId} = useParams();
+  let { groupId } = useParams();
   const [challenges, setChallenges] = useState([]);
+  const [groupName, setGroupName] = useState("");
+  const [members, setMembers] = useState([]);
+
   useEffect(() => {
     let fetchData = async () => {
       let data = await Axios.get(`/group/${groupId}`);
       console.log(data, groupId);
       setChallenges(data.data.challenges);
+      setGroupName(data.data.name);
+      setMembers(data.data.members);
+      console.log(data.data.members);
     }
     fetchData();
   }, [groupId]);
@@ -85,12 +92,12 @@ export default function Challenge() {
   return (
 
     <Switch>
-        <Route path={`${match.url}/:challenge`}>
-            <ChallengeNav />
-        </Route>
-        <Route path={`${match.url}`}>
-            <Base challenges={challenges}/>
-        </Route>
+      <Route path={`${match.url}/:challenge`}>
+        <ChallengeNav members={members}/>
+      </Route>
+      <Route path={`${match.url}`}>
+        <Base challenges={challenges} groupName ={groupName}/>
+      </Route>
     </Switch>
   );
 };

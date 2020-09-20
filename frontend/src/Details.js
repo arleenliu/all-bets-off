@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
@@ -12,7 +12,7 @@ const Details = (props) => {
     var boxStyle = {
       padding: 20,
       margin: 20,
-      display:"inline-block",
+      display: "inline-block",
       textAlign: 'left',
       alignItems: 'center',
       fontSize: 15,
@@ -25,39 +25,38 @@ const Details = (props) => {
       borderColor: '#000000'
     };
     return (
-    <div style={boxStyle}> "CHALLENGE DESCRIPTION GOES HERE"
+      <div style={boxStyle}> 
+        {props.text}
       </div>
     );
   }
- var renderData = [];
 
-  renderData.push(<Box/>);
-
-  var Circle = (props)=> {
-      var circleStyle = {
-        padding:20,
-        margin:20,
-        display:"inline-block",
-        textAlign: 'center',
-        alignItems: 'center',
-        fontSize: props.fontSize,
-        fontFamily: 'Helvetica Neue',
-        backgroundColor: props.bgColor,
-        borderRadius: "50%",
-        border: 4,
-        borderColor: '#000000',
-        width:props.size,
-        height:props.size,
-      };
-      return (
-      <div style={circleStyle}> <br/> {props.txt} <br/> {props.val}
-        </div>
-      );
+  var Circle = (props) => {
+    var circleStyle = {
+      padding: 20,
+      margin: 20,
+      display: "inline-block",
+      textAlign: 'center',
+      alignItems: 'center',
+      fontSize: props.fontSize,
+      fontFamily: 'Helvetica Neue',
+      backgroundColor: props.bgColor,
+      borderRadius: "50%",
+      border: 4,
+      borderColor: '#000000',
+      width: props.size,
+      height: props.size,
     };
+    return (
+      <div style={circleStyle}> <br /> {props.txt} <br /> {props.val}
+      </div>
+    );
+  };
 
+  var renderData = [];
   var colors = ["#E6F7FF", "#E6F7FF", "#E6F7FF"];
   var texts = ["COMPLETED", "POT", "GOAL"];
-  var nums = ["XX", "$XX", "XX"];
+  var nums = [`${props.challenge.completed.length} tasks`, `${props.challenge.prize}`, `${props.challenge.end_condition.cond}`];
   var sizes = [100, 150, 100];
   var fontSizes = [11, 18, 12];
 
@@ -67,24 +66,24 @@ const Details = (props) => {
     var num = nums[i];
     var size = sizes[i];
     var fontSize = fontSizes[i];
-    renderData.push(<Circle key={i + color} bgColor={color} txt={text} val ={num} size={size} fontSize={fontSize}/>);
-}
+    renderData.push(<Circle key={i + color} bgColor={color} txt={text} val={num} size={size} fontSize={fontSize} />);
+  }
 
 
-return(
+  return (
 
-  <Container>
-    <Row>
-      {renderData[0]}
-    </Row>
-    <Row>
-      <Col sm={20}>{renderData[1]}</Col>
-      <Col sm={20}>{renderData[2]}</Col>
-      <Col sm={20}>{renderData[3]}</Col>
-    </Row>
+    <Container>
+      <Row>
+        <Box text={props.challenge.info}/>
+      </Row>
+      <Row>
+        <Col sm={20}>{renderData[0]}</Col>
+        <Col sm={20}>{renderData[1]}</Col>
+        <Col sm={20}>{renderData[2]}</Col>
+      </Row>
 
-  </Container>
-);
+    </Container>
+  );
 
 }
 export default Details;
