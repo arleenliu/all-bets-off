@@ -59,7 +59,7 @@ const Details = (props) => {
   var texts = ["COMPLETED", "POT", "GOAL"];
   var nums = [`${props.challenge.completed.length} tasks`, `${props.challenge.prize}`, `${props.challenge.end_condition.cond}`];
   var sizes = [100, 150, 100];
-  var fontSizes = [11, 18, 12];
+  var fontSizes = [11, 15, 12];
 
   for (var i = 0; i < colors.length; i++) {
     var color = colors[i];
