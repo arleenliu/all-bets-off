@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Grid from '@material-ui/core/Grid';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Heatmap } from './Heatmap';
+import '../Group.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(0, 'auto')
   },
   demo: {
-    backgroundColor: '#D3D3D3',
+    backgroundColor: '#D6ECF3',
     
   },
   title: {
@@ -48,14 +49,18 @@ const Base = () => {
                     <div className={classes.demo}>
                     <List>
                         {generate(
+                        <div class='group'>
                         <ListItem button component={Link} to={`${match.url}/userheatmap`}>
-                            <ListItemIcon>
+                          <div class= 'group_block'>
+                           <ListItemIcon>
                             <Avatar />
                         </ListItemIcon>
                         <ListItemText
                         primary="User"
                         />
-                        </ListItem>,
+                          </div>
+                        </ListItem>
+                        </div>
                         )}
                     </List>
                     </div>

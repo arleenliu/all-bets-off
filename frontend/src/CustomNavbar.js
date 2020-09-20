@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Feed from './Feed';
@@ -17,36 +17,36 @@ import {
   Link
 } from "react-router-dom";
 
-export default function CustomNavbar(){
-    return (
-        <>
-        <div class="center_nav">
+export default function CustomNavbar(props) {
+  return (
+    <>
+      <div class="center_nav">
         <Navbar>
           <Nav.Item>
-              <Nav.Link as={Link} to="/feed" style={{ marginRight: 100 }}>Feed</Nav.Link>
-           </Nav.Item>
-           <Nav.Item>
-              <Nav.Link as={Link} to="/groups" style={{ marginRight: 100 }}>Groups</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={Link} to="/profile" style={{ marginRight: 100 }}>Profile</Nav.Link>
-            </Nav.Item>
+            <Nav.Link as={Link} to="/feed" style={{ marginRight: 100 }}>Feed</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/groups" style={{ marginRight: 100 }}>Groups</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={Link} to="/profile" style={{ marginRight: 100 }}>Profile</Nav.Link>
+          </Nav.Item>
         </Navbar>
-        </div>
-        <BackButton/>
-    
-        {/* A <Switch> looks through its children <Route>s and
+      </div>
+      <BackButton />
+
+      {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
+      <Switch>
         <Route path="/feed">
-            <Feed />
-          </Route>
-          <Route path="/groups">
-            <Group challenges={[1, 2, 3]} />
-          </Route>
-          <Route path="/profile">
-          <Profile src={logo} name="React" bio="I am a react app" badges={[{img:logo}]}/>
-          </Route>
-        </Switch>
-        </>);
+          <Feed user={props.user}/>
+        </Route>
+        <Route path="/groups">
+          <Group user={props.user} challenges={[1, 2, 3]} />
+        </Route>
+        <Route path="/profile">
+          <Profile user={props.user} src={logo} name="React" bio="I am a react app" badges={[{ img: logo }]} />
+        </Route>
+      </Switch>
+    </>);
 }

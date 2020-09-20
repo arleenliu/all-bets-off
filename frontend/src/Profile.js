@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
+import './center.css';
 
 const Profile = (props) => {
 
@@ -11,9 +12,9 @@ const Profile = (props) => {
       padding: 20,
       margin: 30,
       display:"inline-block",
-      textAlign: 'left',
+      textAlign: props.type == "name" ? "center" : "left",
       alignItems: 'center',
-      fontSize: 15,
+      fontSize: props.type == "name" ? "5vw" : "3vw",
       fontFamily: 'Helvetica Neue',
       width: props.width,
       height: props.height,
@@ -46,6 +47,7 @@ const Profile = (props) => {
         backgroundColor: props.bgColor,
         borderRadius: "50%",
         border: 4,
+        boxShadow: "0 0 3pt 2pt #A9A9A9",
         borderColor: '#000000',
         width:props.size,
         height:props.size,
@@ -56,7 +58,7 @@ const Profile = (props) => {
       );
     };
 
-  var colors = ["#E6F7FF", "#E6F7FF", "#E6F7FF"];
+  var colors = ["#FFF", "#FFF", "#FFF"];
   var texts = ["MONEY MADE", "TASKS COMPLETED", "CURRENT CHALLENGES"];
   var nums = ["$XX", "XX", "XX"];
   var sizes = [100, 150, 100];
@@ -74,18 +76,14 @@ const Profile = (props) => {
 return(
 
   <Container>
-    <Row>
-        <Image src={props.src} rounded />
-        {renderData[0]}
-    </Row>
-    <Row>
-      {renderData[1]}
-    </Row>
-    <Row>
-      <Col sm={20}>{renderData[2]}</Col>
-      <Col sm={20}>{renderData[3]}</Col>
-      <Col sm={20}>{renderData[4]}</Col>
-    </Row>
+      <div className="center_div"><Image src={props.src} rounded width={"25%"} height={"25%"} /></div>
+      <div className="center_div">{renderData[0]}</div>
+      <div className="center_div">{renderData[1]}</div>
+    <div className="center_div">
+        <Col sm={20}>{renderData[2]}</Col>
+        <Col sm={20}>{renderData[3]}</Col>
+        <Col sm={20}>{renderData[4]}</Col>
+    </div>
 
   </Container>
 );

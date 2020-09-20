@@ -1,7 +1,7 @@
 const Task = require('../models/Task');
 
 exports.getTasks = async (req, res) => {
-  const tasks = await Task.find();
+  const tasks = await Task.find().populate('challengeId').populate('userId').populate('groupId').execPopulate();
   res.status(200).json(tasks);
 };
 

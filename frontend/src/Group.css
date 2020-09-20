@@ -1,5 +1,6 @@
 .Group {
   text-align: center;
+  font-family: 'Lato';
 }
 
 .group {
@@ -8,18 +9,21 @@
   margin-right: -50%;
   justify-content: center;
   vertical-align: center;
+  font-family: 'Lato';
 }
 
 .group_block { 
   padding: 10px;
   background-color: white;
   width: 200vh;
+  font-family: 'Lato';
 }
 
 .center {
   display: flex;
   justify-content: center;
   align-items: center; 
+  font-family: 'Lato';
 }
 
 .avatarPic 
@@ -27,5 +31,6 @@
   height: 50px;
   width: 50px;
   border-radius: 25px;
+  font-family: 'Lato';
 }
 

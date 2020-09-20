@@ -9,14 +9,15 @@ const GroupSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    members: {
-        type: Array,
-        required: false, // only required for private groups.
-    },
-    challenges: {
-        type: Array,
+    members: [{
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: 'users'
+    }],
+    challenges: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'challenges',
         required: true,
-    }
+    }]
 });
 
 module.exports = mongoose.model('groups', GroupSchema);
