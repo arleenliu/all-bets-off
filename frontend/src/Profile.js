@@ -44,7 +44,7 @@ const Profile = (props) => {
         textAlign: 'center',
         alignItems: 'center',
         fontSize: props.fontSize,
-        fontFamily: 'Helvetica Neue',
+        fontFamily: 'Lato',
         backgroundColor: props.bgColor,
         borderRadius: "50%",
         border: 4,
