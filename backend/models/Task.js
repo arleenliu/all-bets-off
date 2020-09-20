@@ -2,15 +2,18 @@ const mongoose = require('mongoose');
 
 const TaskSchema = mongoose.Schema({
     challengeId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+         ref: 'challenges',
         required: true,
     },
     userId: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users',
         required: true,
     },
     groupId: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'groups',
         required: true,
     },
     timestamp: {
