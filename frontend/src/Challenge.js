@@ -92,7 +92,7 @@ export default function Challenge() {
   return (
 
     <Switch>
-      <Route path={`${match.url}/:challenge`}>
+      <Route path={`${match.url}/:challengeId`}>
         <ChallengeNav members={members}/>
       </Route>
       <Route path={`${match.url}`}>

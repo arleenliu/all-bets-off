@@ -28,8 +28,7 @@ export default function ChallengeNav(props) {
   useEffect(() => {
     let fetchData = async () => {
       let data = await Axios.get(`/challenge/${challengeId}`);
-      setChallenge(data.data[0]);
-      console.log(data.data);
+      setChallenge(data.data);
     }
     fetchData();
   }, [challengeId]);
