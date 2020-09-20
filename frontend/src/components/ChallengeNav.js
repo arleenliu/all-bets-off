@@ -41,7 +41,7 @@ export default function ChallengeNav(){
 
         <Route path={`${match.url}/details`}>
               <Details/>
-            </Route>
+        </Route>
         </Switch>
         </>);
 }
