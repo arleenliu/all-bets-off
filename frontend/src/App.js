@@ -8,6 +8,8 @@ import Profile from './Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Group from './Group';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
+import bet from './images/bet.jpg'
 import CustomNavbar from './CustomNavbar';
 
 
@@ -15,9 +17,15 @@ export default function App() {
   const [user, setUser] = useState(null);
   return (
     <>
-    {user ? <CustomNavbar /> : <>
-      Login Page
+    <div style = {{background: '#D6ECF3', minHeight : '100vh'}}>
+    {user ? <CustomNavbar /> : 
+      <>
+        <div class = "logoimg">
+          <Image src={bet} fluid />
+        </div>
+        <div class = "center">
           <Button onClick={() => {setUser("not null")}}>Login with Facebook</Button>
+        </div>
       </>
     }
     <link
@@ -26,6 +34,7 @@ export default function App() {
       integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
       crossorigin="anonymous"
     />
+    </div>
   </>
   );
 }

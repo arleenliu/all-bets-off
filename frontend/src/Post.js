@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/esm/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import './Post.css';
 
 const Comment = (props) => {
   return (
@@ -20,7 +21,7 @@ const Header = (props) => {
       <Col>
         <Image className="avatarPic" src={props.img} onClick={props.onClick} responsive/>
       </Col>
-      <Col>
+      <Col class="header">
         <Row>
           {props.name}
         </Row>
@@ -88,7 +89,7 @@ const Post = (props) => {
 
   return (
     <Container className="post">
-      <Header 
+      <Header
         img={props.profilePic} 
         onClick={() => {alert("Go to profile")}}
         name={props.userName}
@@ -97,9 +98,11 @@ const Post = (props) => {
         challengeName={props.challengeName} 
         caption={props.caption} 
         img={props.img}/>
+      <div class = "comments">
       <CommentsBlock 
         liked={props.liked}
         comments={props.comments}/>
+      </div>
     </Container>
   );
 }

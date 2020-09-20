@@ -5,10 +5,12 @@ import { makeStyles,
     ListItemText,
     ListItemIcon,
     Avatar,
-    Grid
+    Grid,
+    TextareaAutosize
 } from '@material-ui/core';
 import Challenge from './Challenge';
 import { Link, Switch, Route, useRouteMatch } from 'react-router-dom';
+import './Group.css';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -19,8 +21,8 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(0, 'auto')
     },
     demo: {
-      backgroundColor: '#D3D3D3',
-      
+      backgroundColor: '#D6ECF3',
+      margin: 'auto',
     },
     title: {
       margin: theme.spacing(4, 0, 2),
@@ -46,14 +48,18 @@ const GroupPage = (props) => {
             <div className={classes.demo}>
             <List dense={dense}>
                 {generate(
+                <div class='group'>
                 <ListItem button component={Link} to={`${match.url}/specificgroup/challenges`}>
-                    <ListItemIcon>
+                  <div class= 'group_block'>
+                  <ListItemIcon>
                     <Avatar />
-                </ListItemIcon>
-                <ListItemText
-                  primary="Group"
-                />
-                </ListItem>,
+                  </ListItemIcon>
+                  <ListItemText
+                    primary="Group"
+                  />
+                  </div>
+                </ListItem>
+                </div>
                 )}
             </List>
             </div>
@@ -68,7 +74,7 @@ const Group = (props) => {
   
         return (
             <>
-
+            <div class = "center">
             <Switch>
                 <Route path={`${match.path}/specificgroup/challenges`}>
                     <Challenge />
@@ -77,6 +83,7 @@ const Group = (props) => {
                     <GroupPage />
                 </Route>
             </Switch>
+            </div>
             </>
           );
 

@@ -1,0 +1,31 @@
+.Group {
+  text-align: center;
+}
+
+.group {
+  background-color: #D6ECF3;
+  margin-left: 50%;
+  margin-right: -50%;
+  justify-content: center;
+  vertical-align: center;
+}
+
+.group_block { 
+  padding: 10px;
+  background-color: white;
+  width: 200vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.avatarPic 
+{
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+
