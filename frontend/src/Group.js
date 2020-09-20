@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    }),
-  );
-}
+// function generate(element) {
+//   return [0, 1, 2].map((value) =>
+//     React.cloneElement(element, {
+//       key: value,
+//     }),
+//   );
+// }
 
 const GroupPage = (props) => {
   const classes = useStyles();
@@ -73,13 +73,10 @@ const GroupPage = (props) => {
 
 const Group = (props) => {
   const [groups, setGroups] = useState([]);
-  
   useEffect(() => {
     let fetchData = async () => {
       let unfilteredGroups = await Axios.get('/group');
       unfilteredGroups = unfilteredGroups.data;
-      console.log(unfilteredGroups);
-      console.log(props.user);
       let userGroups = unfilteredGroups.filter(group => props.user.groups.includes(group._id));
       setGroups(userGroups);
     }
@@ -92,8 +89,8 @@ const Group = (props) => {
     <>
       <div class="center">
         <Switch>
-          <Route path={`${match.url}/specificgroup/challenges`}>
-            <Challenge user={props.user}/>
+          <Route path={`${match.url}/:groupId/challenges`}>
+            <Challenge user={props.user} group={selectedGroup}/>
           </Route>
           <Route path={`${match.url}`}>
             <GroupPage user={props.user} groups={groups}/>

@@ -21,6 +21,14 @@ import './ChallengeNav.css';
 
 export default function ChallengeNav(){
     let match = useRouteMatch();
+    let {challengeId} = useParams();
+    const [challenge, setChallenge] = useState([]);
+    useEffect(() => {
+      let fetchData = async () => {
+        let data = await Axios.get(`/challenge/${challengeId}`);
+        setChallenge(data.data);
+      }
+    }, [groudId]);
     return (
         <>
         <div style={{paddingTop: "50px"}}>
@@ -38,11 +46,11 @@ export default function ChallengeNav(){
         <Switch>
         <Route path={`${match.url}/progress`}>
             {console.log("Progress")}
-            <Progress />
+            <Progress challenge={challenge}/>
           </Route>
 
         <Route path={`${match.url}/details`}>
-              <Details/>
+              <Details challenge={challenge}/>
         </Route>
         </Switch>
         </div>
