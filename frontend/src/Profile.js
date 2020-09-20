@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import './center.css';
+import prof from './images/prof5.png'
 
 const Profile = (props) => {
 
@@ -12,10 +13,10 @@ const Profile = (props) => {
       padding: 20,
       margin: 30,
       display:"inline-block",
-      textAlign: props.type == "name" ? "center" : "left",
+      textAlign: props.align,
       alignItems: 'center',
       fontSize: props.type == "name" ? "5vw" : "3vw",
-      fontFamily: 'Lota',
+      fontFamily: 'Lato',
       width: props.width,
       height: props.height,
       backgroundColor: props.color,
@@ -28,12 +29,12 @@ const Profile = (props) => {
  var renderData = [];
 
   var namewidth = 300
-  var nameheight = 100
+  var nameheight = 25
   var biowidth = 430
   var bioheight = 200
 
-  renderData.push(<Box txt={props.name} color="#D6ECF3" width={namewidth} height={nameheight}/>);
-  renderData.push(<Box txt={props.bio} color="#E6F7FF" width={biowidth} height={bioheight}/>);
+  renderData.push(<Box txt={props.name} color="#D6ECF3" width={namewidth} height={nameheight} align="center"/>);
+  renderData.push(<Box txt={props.bio} color="#E6F7FF" width={biowidth} height={bioheight} align="left"/>);
 
   var Circle = (props)=> {
       var circleStyle = {
@@ -76,7 +77,7 @@ const Profile = (props) => {
 return(
 
   <Container>
-      <div className="center_div"><Image src={props.src} rounded width={"25%"} height={"25%"} /></div>
+      <div className="center_div"><Image src={prof} borderRadius={"50%"} rounded width={"25%"} height={"25%"} /></div>
       <div className="center_div">{renderData[0]}</div>
       <div className="center_div">{renderData[1]}</div>
     <div className="center_div">
@@ -88,35 +89,6 @@ return(
   </Container>
 );
 
-  return (
-    <Container>
-      <Row>
-        <Col>
-          <Image src={props.src} rounded />
-        </Col>
-        <Col>
-          {props.name}
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          {props.bio}
-        </Col>
-      </Row>
-      <Row>
-        {props.badges.map(badge => {
-          return (
-            <Col>
-              <Image src={badge.img} rounded />
-            </Col>
-          )
-        })}
-      </Row>
-      {/* IDK how to do the 3 circles. */}
-    </Container>
-
-
-  );
 }
 
 export default Profile;
