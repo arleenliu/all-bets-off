@@ -25,13 +25,17 @@ export default function ChallengeNav(props) {
   let match = useRouteMatch();
   let { challengeId } = useParams();
   const [challenge, setChallenge] = useState([]);
+  let fetchData = async () => {
+    let data = await Axios.get(`/challenge/${challengeId}`);
+    setChallenge(data.data);
+  }
   useEffect(() => {
-    let fetchData = async () => {
-      let data = await Axios.get(`/challenge/${challengeId}`);
-      setChallenge(data.data);
-    }
     fetchData();
-  }, [challengeId]);
+  }, [challengeId, fetchData]);
+  // if (!challenge) {
+  //   fetchData();
+  //   console.warn("fetching data because challenge is empty");
+  // }
   return (
     <>
       <div style={{ paddingTop: "50px" }}>
@@ -48,11 +52,13 @@ export default function ChallengeNav(props) {
         <div class="user">
           <Switch>
             <Route path={`${match.url}/progress`}>
-              <Progress challenge={challenge} members={props.members}/>
+              {challenge != [] ? <Progress challenge={challenge} members={props.members}/> :
+              "404 No challenge found."}
             </Route>
 
             <Route path={`${match.url}/details`}>
-              <Details challenge={challenge} />
+              {challenge != [] ? <Details challenge={challenge} /> :
+              "404 No challenge found."}
             </Route>
           </Switch>
         </div>

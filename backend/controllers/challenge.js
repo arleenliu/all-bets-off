@@ -52,18 +52,11 @@ exports.createChallenge = async (req, res, next) => {
 
 exports.editChallenge = async (req, res) => {
     const challengeId = req.params.challengeId;
-    const { group_id, challenge_name, info, end_condition, completed, prize } = req.body;
 
     let challenge = await Challenge.findById(challengeId);
 
     if (challenge) {
-      challenge.group_id = group_id;
-      challenge.challenge_name = challenge_name;
-      challenge.info = info;
-      challenge.end_condition = end_condition;
-      challenge.completed = completed;
-      challenge.prize = prize;
-
+      Object.assign(challenge, req.body);
       challenge.save().then(() => {
         console.log('Item Updated');
         res.status(201).redirect('/');

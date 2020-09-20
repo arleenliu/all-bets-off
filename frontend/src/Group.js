@@ -31,14 +31,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-// function generate(element) {
-//   return [0, 1, 2].map((value) =>
-//     React.cloneElement(element, {
-//       key: value,
-//     }),
-//   );
-// }
-
 const GroupPage = (props) => {
   const classes = useStyles();
   let match = useRouteMatch();
@@ -52,17 +44,6 @@ const GroupPage = (props) => {
             <List dense={dense}>
               {props.groups.map((group) =>
                 <LongButton key={group._id} link={`${match.url}/${group._id}/challenges`} primary={group.name} secondary={group.about}/>
-                //   <ListItem button component={Link} to={`${match.url}/${group._id}/challenges`}>
-                //     <div class='group_block'>
-                //       <ListItemIcon>
-                //         <Avatar />
-                //       </ListItemIcon>
-                //       <ListItemText
-                //         primary={group.name}
-                //       />
-                //     </div>
-                //   </ListItem>
-                // </div> 
               )}
             </List>
           </div>
