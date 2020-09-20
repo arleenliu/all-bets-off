@@ -15,7 +15,7 @@ const Profile = (props) => {
       textAlign: props.type == "name" ? "center" : "left",
       alignItems: 'center',
       fontSize: props.type == "name" ? "5vw" : "3vw",
-      fontFamily: 'Helvetica Neue',
+      fontFamily: 'Lota',
       width: props.width,
       height: props.height,
       backgroundColor: props.color,

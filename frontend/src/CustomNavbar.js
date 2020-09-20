@@ -37,6 +37,7 @@ export default function CustomNavbar(props) {
 
       {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
+      <div class = "switch">
       <Switch>
         <Route path="/feed">
           <Feed user={props.user}/>
@@ -45,8 +46,9 @@ export default function CustomNavbar(props) {
           <Group user={props.user} challenges={[1, 2, 3]} />
         </Route>
         <Route path="/profile">
-          <Profile user={props.user} src={logo} name="React" bio="I am a react app" badges={[{ img: logo }]} />
+          <Profile user={props.user} src={logo} name="Julie Meng" bio="Sophomore at MIT." badges={[{ img: logo }]} />
         </Route>
       </Switch>
+      </div>
     </>);
 }
